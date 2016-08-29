@@ -38,11 +38,10 @@ Build a complete app (back-end Django app, back-end REST API, and front-end UI) 
 ###Ask questions
 - Answer questions
 - Vote on answers positively or negatively
-Questions need to have:
-- A title
-- The question text
-- Any number of tags (tags being short phrases that show the topics of the question)
-- 
+- Questions need to have:
+  - A title
+  - The question text
+  - Any number of tags (tags being short phrases that show the topics of the question)
 ###Any number of answers
 Answers need to have:
 - The answer text
