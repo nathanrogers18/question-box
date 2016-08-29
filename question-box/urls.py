@@ -1,12 +1,18 @@
-from django.conf.urls import include, url
-
+from django.conf.urls import url, include
+from rest_framework import routers
+from question import views
 from django.contrib import admin
-admin.autodiscover()
 
-import hello.views
+
+# router = routers.DefaultRouter()
+# router.register(r'question', views.QuestionViewSet)
+# router.register(r'answer', views.AnswerViewSet)
+# router.register(r'comment', views.CommentViewSet)
+# router.register(r'tag', views.TagViewSet)
 
 urlpatterns = [
-    url(r'^$', question.views.index, name='index'),
-    url(r'^db', question.views.db, name='db'),
-    url(r'^admin/', include(admin.site.urls)),
+    url(r'^admin/', admin.site.urls),
+    url(r'^', include('question.urls')),
+    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    url(r'^api/', include(router.urls))
 ]
