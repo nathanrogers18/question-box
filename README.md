@@ -49,7 +49,7 @@ Answers need to have:
 
 ###Users can also have:
 - A profile page that shows their score and other info.
-- A score. 
+- A score.
   - The score starts at 0, and increases in the following ways:
   - When a user asks a question, +5 points.
   - When a user's answer is upvoted, +10 points per positive vote.
