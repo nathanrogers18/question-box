@@ -5,10 +5,6 @@ admin.autodiscover()
 
 import hello.views
 
-# Examples:
-# url(r'^$', 'gettingstarted.views.home', name='home'),
-# url(r'^blog/', include('blog.urls')),
-
 urlpatterns = [
     url(r'^$', question.views.index, name='index'),
     url(r'^db', question.views.db, name='db'),
