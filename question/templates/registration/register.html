@@ -1,4 +1,8 @@
-{% extends 'base.html' %}
 
+{% block body %}
+<form method=POST>
 {% csrf_token %}
-{{orm.as_p}}
+{{ form.as_p }}
+<button type='submit'></button>
+</form>
+{% endblock %}
