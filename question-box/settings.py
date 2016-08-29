@@ -66,7 +66,6 @@ WSGI_APPLICATION = 'question-box.wsgi.application'
 DATABASES = {
     'default': {}
     }
-}
 
 
 
