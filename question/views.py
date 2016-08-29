@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 
-from .models import UserProfile, Tag, Question, Answer, Comment # TODO: Change this to the specific models
+from .models import UserProfile, Tag, Question, Answer, Comment
 
 
 # Create your views here.
