@@ -34,3 +34,6 @@ class CommentViewSet(viewsets.ModelViewSet):
 class AnswerViewSet(viewsets.ModelViewSet):
     queryset = Answer.objects.all()
     serializer_class = AnswerSerializer
+
+def ask_question(request):
+    return render(request, 'ask_question.html')

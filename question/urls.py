@@ -14,4 +14,6 @@ urlpatterns = [
 
     ), name='register'),
     url(r'^login/$', login, name='login'),
+    url(r'^ask/$', views.ask_question, name='ask'),
+
     ]
