@@ -1,4 +1,4 @@
-from django.contrib.auth.models import UserProfile, Tag, Question, Comment, Answer
+from .models import UserProfile, Tag, Question, Comment, Answer
 from rest_framework import serializers
 
 
