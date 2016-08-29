@@ -3,12 +3,12 @@ from rest_framework import routers
 from question import views
 from django.contrib import admin
 
-
 # router = routers.DefaultRouter()
 # router.register(r'question', views.QuestionViewSet)
 # router.register(r'answer', views.AnswerViewSet)
 # router.register(r'comment', views.CommentViewSet)
 # router.register(r'tag', views.TagViewSet)
+
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
