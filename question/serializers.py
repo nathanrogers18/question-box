@@ -26,7 +26,7 @@ class AnswerSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Answer
-        fields = ('user', 'question', 'text', 'timestamp', 'comment_set')
+        fields = ('user', 'question', 'text', 'accepted', 'vote', 'timestamp', 'comment_set')
 
 
 class QuestionSerializer(serializers.ModelSerializer):
@@ -36,5 +36,5 @@ class QuestionSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Question
-        fields = ('user', 'title', 'text', 'tag', 'timestamp',
+        fields = ('user', 'title', 'text', 'tag', 'vote', 'timestamp',
                   'answer_set', 'comment_set', 'tag_set')

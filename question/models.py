@@ -23,6 +23,7 @@ class Question(models.Model):
     title = models.CharField(max_length=200)
     text = models.TextField()
     tag = models.ManyToManyField(Tag)
+    vote = models.IntegerField(default=0)
     timestamp = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
@@ -33,6 +34,8 @@ class Answer(models.Model):
     user = models.ForeignKey(User)
     question = models.ForeignKey(Question)
     text = models.TextField()
+    vote = models.IntegerField(default=0)
+    accepted = models.BooleanField(default=False)
     timestamp = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
