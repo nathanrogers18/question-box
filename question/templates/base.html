@@ -10,43 +10,60 @@
       <link rel="stylesheet" type="text/css" href="{% static 'question/css/style.css' %}" />
   </head>
 <body>
-<nav class="navbar navbar-dark bg-inverse">
-<a class="navbar-brand" href="#">Box of Questions</a>
-<ul class="nav navbar-nav pull-*-right">
-<li class="nav-item active">
-<a class="nav-link" href="#">sign up<span class="sr-only">(current)</span></a>
-</li>
-<li class="nav-item">
-<a class="nav-link" href="#">log in</a>
-</li>
-<li class="nav-item">
-<a class="nav-link" href="#">tour</a>
-</li>
-<li class="nav-item dropdown">
-<a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown" role="button" aria-expanded="false">help<span class="caret"></span></a>
-<ul class="dropdown-menu" role="menu">
-<li><a href="#">Tour</a></li>
-<li><a href="#">Help Center</a></li>
-<li><a href="#">Meta</a></li>
-<li><a href="#">About Us</a></li>
-<li><a href="#">Business</a></li>
-</ul>
-</li>
-</ul>
-<form class="form-inline navbar-form pull-xs-right" role="search" method="get" accept-charset="utf-8">
-<div class="form-group">
-{% csrf_token %}
-<!-- <span class="glyphicon glyphicon-search" aria-hidden="true"></span> -->
-<input class="form-control" type="search" placeholder="Search Q&A" name='q' results="0">
-</form>
-</div>
-</nav>
+  <nav class="navbar navbar-dark bg-inverse">
+    <a class="navbar-brand" href="#">Box of Questions</a>
+      <ul class="nav navbar-nav pull-xs-right">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">sign up<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">log in</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">tour</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown" role="button" aria-expanded="false">help<span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="#">Tour</a></li>
+              <li><a href="#">Help Center</a></li>
+              <li><a href="#">Meta</a></li>
+              <li><a href="#">About Us</a></li>
+              <li><a href="#">Business</a></li>
+
+            </ul>
+            <li class="nav-item"><form class="form-inline navbar-form pull-xs-right" role="search" method="get" accept-charset="utf-8">
+              <div class="form-group">
+              {% csrf_token %}
+              <!-- <span class="glyphicon glyphicon-search" aria-hidden="true"></span> -->
+                <input class="form-control" type="search" placeholder="Search Q&A" name='q' results="0">
+            </form> </li>
+        </li>
+
+      </ul>
+  </div>
+  </nav>
 <div class="container">
-<div id="header">
-
-
-
-
+<div class="row">
+  <div id="header">
+  <div class="col-md-6"></div>
+  <div class="col-md-6 pull-xs-right">
+    <div id='sidemenu'>
+      <nav class="nav navbar-nav">
+        <ul class="nav navbar-nav">
+          <li class='youarehere'> <a id='navqs' href="#">Questions</a>
+            <a id='navqs' href="#">Jobs</a>
+            <a id='navqs' href="#">Documentation</a>
+            <a id='navqs' href="#">Tags</a>
+            <a id='navqs' href="#">Users</a>
+            <a id='navqs' href="#">Badges</a>
+            <a id='navqs' href="#">Ask A Question</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</div>
 </div>
 </div>
 <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
