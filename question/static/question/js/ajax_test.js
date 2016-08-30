@@ -6,9 +6,8 @@ $(document).on('submit', '#answerForm', function(e) {
   //
   //   }
   // })
-  // console.log($('#answerField').value)
+  console.log($('#answerField').value)
   e.preventDefault();
 })
-
 // Now we have the question id for attaching to form
 // TODO get user, text
