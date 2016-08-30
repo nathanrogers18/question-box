@@ -1,32 +1,40 @@
-from .models import UserProfile, Tag, Question, Comment, Answer
 from rest_framework import serializers
 
+from .models import UserProfile, Tag, Question, Comment, Answer
 
-class UserProfileSerializer(serializers.HyperlinkedModelSerializer):
+
+class UserProfileSerializer(serializers.ModelSerializer):
     class Meta:
         model = UserProfile
         fields = ('user', 'score')
 
 
-class TagSerializer(serializers.HyperlinkedModelSerializer):
+class TagSerializer(serializers.ModelSerializer):
     class Meta:
         model = Tag
-        fields = ('topic')
+        fields = ('topic',)
 
 
-class QuestionSerializer(serializers.HyperlinkedModelSerializer):
-    class Meta:
-        model = Question
-        fields = ('user', 'title', 'text', 'tag', 'timestamp')
-
-
-class AnswerSerializer(serializers.HyperlinkedModelSerializer):
-    class Meta:
-        model = Answer
-        fields = ('user', 'question', 'text', 'timestamp')
-
-
-class CommentSerializer(serializers.HyperlinkedModelSerializer):
+class CommentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Comment
         fields = ('user', 'question', 'text', 'answer', 'timestamp')
+
+
+class AnswerSerializer(serializers.ModelSerializer):
+    comment_set = CommentSerializer(many=True, read_only=True)
+
+    class Meta:
+        model = Answer
+        fields = ('user', 'question', 'text', 'timestamp', 'comment_set')
+
+
+class QuestionSerializer(serializers.ModelSerializer):
+    answer_set = AnswerSerializer(many=True, read_only=True)
+    comment_set = CommentSerializer(many=True, read_only=True)
+    tag_set = TagSerializer(many=True, read_only=True)
+
+    class Meta:
+        model = Question
+        fields = ('user', 'title', 'text', 'tag', 'timestamp',
+                  'answer_set', 'comment_set', 'tag_set')

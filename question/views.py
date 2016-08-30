@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 from .models import UserProfile, Tag, Question, Answer, Comment
 from rest_framework import viewsets
@@ -34,3 +34,16 @@ class CommentViewSet(viewsets.ModelViewSet):
 class AnswerViewSet(viewsets.ModelViewSet):
     queryset = Answer.objects.all()
     serializer_class = AnswerSerializer
+
+def ask_question(request):
+    return render(request, 'ask_question.html')
+
+def question_detail(request, question_id):
+    # question = get_object_or_404(Question, id=question_id)
+    # context = {'question': question}
+    return render(request, 'question_detail.html')
+
+def question_detail_test(request): # TODO: Remove when done testing
+    # question = get_object_or_404(Question, id=question_id)
+    # context = {'question': question}
+    return render(request, 'question_detail.html')

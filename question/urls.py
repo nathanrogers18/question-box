@@ -14,4 +14,8 @@ urlpatterns = [
 
     ), name='register'),
     url(r'^login/$', login, name='login'),
+    url(r'^ask/$', views.ask_question, name='ask'),
+    url(r'^question/(?P<question_id>[0-9]+)/$',
+        views.question_detail, name='question_detail'),
+    url(r'^question_test/$', views.question_detail_test, name='question_detail'),  # TODO: Remove this when finished testing
     ]

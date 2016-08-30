@@ -6,49 +6,52 @@
         {% load static %}
     </title>
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.3/css/bootstrap.min.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tokenfield/0.12.0/css/bootstrap-tokenfield.css">
       <link rel="stylesheet" type="text/css" href="{% static 'question/css/style.css' %}" />
   </head>
 <body>
-            <nav class="navbar navbar-dark bg-inverse">
-              <a class="navbar-brand" href="#">Box of Questions</a>
-              <ul class="nav navbar-nav pull-*-right">
-                <li class="nav-item active">
-                  <a class="nav-link" href="#">sign up<span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">log in</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">tour</a>
-                </li>
-                  <li class="nav-item dropdown">
-                    <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown" role="button" aria-expanded="false">help<span class="caret"></span></a>
-                      <ul class="dropdown-menu" role="menu">
-                        <li><a href="#">Tour</a></li>
-                        <li><a href="#">Help Center</a></li>
-                        <li><a href="#">Meta</a></li>
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Business</a></li>
-                      </ul>
-                  </li>
-              </ul>
-              <form class="form-inline navbar-form pull-xs-right" role="search" method="get" accept-charset="utf-8">
-                <div class="form-group">
-                    {% csrf_token %}
-                    <!-- <span class="glyphicon glyphicon-search" aria-hidden="true"></span> -->
-                <input class="form-control" type="search" placeholder="Search Q&A" name='q' results="0">
-              </form>
-              </div>
-            </nav>
-            <div class="container">
-              <div id="header">
+<nav class="navbar navbar-dark bg-inverse">
+<a class="navbar-brand" href="#">Box of Questions</a>
+<ul class="nav navbar-nav pull-*-right">
+<li class="nav-item active">
+<a class="nav-link" href="#">sign up<span class="sr-only">(current)</span></a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="#">log in</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="#">tour</a>
+</li>
+<li class="nav-item dropdown">
+<a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown" role="button" aria-expanded="false">help<span class="caret"></span></a>
+<ul class="dropdown-menu" role="menu">
+<li><a href="#">Tour</a></li>
+<li><a href="#">Help Center</a></li>
+<li><a href="#">Meta</a></li>
+<li><a href="#">About Us</a></li>
+<li><a href="#">Business</a></li>
+</ul>
+</li>
+</ul>
+<form class="form-inline navbar-form pull-xs-right" role="search" method="get" accept-charset="utf-8">
+<div class="form-group">
+{% csrf_token %}
+<!-- <span class="glyphicon glyphicon-search" aria-hidden="true"></span> -->
+<input class="form-control" type="search" placeholder="Search Q&A" name='q' results="0">
+</form>
+</div>
+</nav>
+<div class="container">
+<div id="header">
 
-              </div>
 
-            </div>
 
+
+</div>
+</div>
 <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tokenfield/0.12.0/bootstrap-tokenfield.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.3/js/bootstrap.min.js"></script>
 <script type="text/javascript" scr="{% static 'question/js/style.js' %}"></script>
 {% block content %}{% endblock %}
