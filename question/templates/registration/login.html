@@ -1,0 +1,15 @@
+
+{% block body %}
+
+{% if form.errors %}
+<p> incorrect username or password </p>
+{% endif %}
+
+<form method=POST>
+  <h1> Login </h1>
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type='submit'>Submit</button>
+</form>
+
+{% endblock %}
