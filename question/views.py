@@ -1,14 +1,21 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
+from django.contrib.auth.models import User
+from django.contrib.auth.decorators import login_required
 from .models import UserProfile, Tag, Question, Answer, Comment
 from rest_framework import viewsets
 from .serializers import UserProfileSerializer, TagSerializer, QuestionSerializer
-from .serializers import AnswerSerializer, CommentSerializer
+from .serializers import AnswerSerializer, CommentSerializer, UserSerializer
 
 
 # Create your views here.
 def index(request):
     return render(request, 'index.html')
+
+
+class UserViewSet(viewsets.ModelViewSet):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
 
 
 class UserProfileViewSet(viewsets.ModelViewSet):
@@ -48,8 +55,9 @@ def question_detail_test(request): # TODO: Remove when done testing
     # context = {'question': question}
     return render(request, 'question_detail.html')
 
-
+@login_required
 def ajax_test(request):  # TODO: REMOVE AFTER testing
     question = get_object_or_404(Question, id=1)
+    user = request.user
     context = {'question': question}
     return render(request, 'ajax_test.html', context)

@@ -9,6 +9,7 @@ router.register(r'answer', views.AnswerViewSet)
 router.register(r'comment', views.CommentViewSet)
 router.register(r'tag', views.TagViewSet)
 router.register(r'user', views.UserProfileViewSet)
+router.register(r'username', views.UserViewSet)
 
 
 urlpatterns = [
