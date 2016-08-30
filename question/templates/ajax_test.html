@@ -1,0 +1,18 @@
+<div class="question" id="{{ question.id }}">
+  <h3>{{ question.title }}</h3>
+  <br />
+  <p>
+    {{ question.text }}
+  </p>
+  <br />
+  by {{ question.user }} on {{ question.timestamp }}
+</div>
+<br />
+<br />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script src="../static/question/js/ajax_test.js"></script>
+<form action="" method="post" id="answerForm">
+  {% csrf_token %}
+  <textarea id="answerField" rows="8" cols="70"></textarea><br />
+  <button>Submit Answer</button>
+</form>
