@@ -16,6 +16,17 @@ a.navbar-brand {
   font-size: 16px;
 }
 
+#qbox {
+  width:25px;
+  height:25px;
+}
+
+#pagebody{
+  margin-left:auto;
+  margin-right:auto;
+  position: absolute;
+}
+
 * {
   border-radius: 0 !important;
 }
@@ -34,6 +45,9 @@ ul.nav.navbar-nav{
   padding-right: 0;
 }
 
+div.col-md-6.pull-xs-right{
+  text-align: right;
+}
 
 
 #sidemenu .nav ul li.youarehere a {
