@@ -1,24 +1,89 @@
-{% extends "base.html" %}
-{% load staticfiles %}
+{% extends "base.html" %} {% load staticfiles %} {% block content %}
 
-{% block content %}
+<!-- QUESTION -->
 <h2>Question Title Here</h2>
+<div class="row" id="question_row">
 
-<ul class="list-group">
-  <li class="list-group-item" id="question">
-      Question Text will go here.  Question Text will go here.  Question Text will go here.  Question Text will go here.  Question Text will go here.  Question Text will go here.  Question Text will go here.
-      <ul class="list-group">
-        <li class="list-group-item" id="comment">Comment text will go here.  Comment text will go here.  Comment text will go here.  Comment text will go here.  Comment text will go here.  Comment text will go here.  </li>
-        <li class="list-group-item" id="comment">Comment text will go here.  Comment text will go here.  Comment text will go here.  Comment text will go here.  Comment text will go here.  Comment text will go here.  </li>
-      </ul>
-  </li>
-  <li class="list-group-item">Answer text will go here. Answer text will go here. Answer text will go here. Answer text will go here. Answer text will go here. Answer text will go here. Answer text will go here.
-      <ul class="list-group">
-        <li class="list-group-item" id="comment">Comment text will go here.  Comment text will go here.  Comment text will go here.  Comment text will go here.  Comment text will go here.  Comment text will go here.  </li>
-        <li class="list-group-item" id="comment">Comment text will go here.  Comment text will go here.  Comment text will go here.  Comment text will go here.  Comment text will go here.  Comment text will go here.  </li>
-      </ul>
-  </li>
-  <li class="list-group-item">Answer Text</li>
-  <li class="list-group-item">Answer Text</li>
+    <!-- VOTE -->
+    <div class="col-xs-4 col-sm-3 col-md-2 col-lg-1" id="vote">
+        <ul>
+           <li id="vote"><button type="button" class="btn btn-outline-primary">+</button></li>
+           <li id="vote_counter">Counter</li>
+           <li id="vote"> <button type="button" class="btn btn-outline-primary">-</button></li>
+       </ul>
+    </div>
+    <!-- QUESTION TEXT -->
+    <div class="col-xs-8 col-sm-9 col-md-10 col-lg-11" id="question_text">
+        <p>
+            Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text
+        </p>
+    </div>
+
+</div>
+
+<!-- TAG LIST -->
+<ul class="list-inline" id="tag_list">
+    <a href="#" class="list-item list-item-action list-group-item-info">Python</a>
+    <a href="#" class="list-item list-item-action list-group-item-info">Java</a>
+    <a href="#" class="list-item list-item-action list-group-item-info">SQL</a>
 </ul>
+
+<!-- USER -->
+<p>
+    Question asked by
+    <a href="#" class="list-item list-item-action">Nathan</a>
+    at TIMESTAMP
+</p>
+
+<!-- COMMENTS -->
+<ul class="list-group">
+
+        <!-- COMMENT LIST-->
+        <ul class="list-group">
+            <li class="list-group-item" id="comment">
+                Comment text will go here. Comment text will go here. Comment text will go here. Comment text will go here. Comment text will go here. Comment text will go here.
+                -
+                <a href="#" class="list-item list-item-action">Nathan</a>
+                at TIMESTAMP
+            </li>
+        </ul>
+
+        <!-- ADD COMMENTS -->
+        <p>
+            <button id="add_comment_button" class="btn btn-primary" type="button" data-toggle="collapse" data-target="#create_comment" aria-expanded="false" aria-controls="collapseExample">
+                Add Comment
+            </button>
+        </p>
+            <div class="collapse" id="create_comment">
+                <form id="comment_form">
+                    <div class="form-group">
+                        <textarea class="form-control" id="comment" rows="3" placeholder="What's your comment? Be specific."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+
+
+<!-- ANSWER -->
+<div class="row" id="answer_row">
+
+    <!-- VOTE -->
+    <div class="col-xs-4 col-sm-3 col-md-2 col-lg-1" id="vote">
+        <ul>
+           <li id="vote"><button type="button" class="btn btn-outline-primary">+</button></li>
+           <li id="vote_counter">Counter</li>
+           <li id="vote"> <button type="button" class="btn btn-outline-primary">-</button></li>
+       </ul>
+    </div>
+    <!-- ANSWER TEXT -->
+    <div class="col-xs-8 col-sm-9 col-md-10 col-lg-11" id="answer_text">
+        <p>
+            Answer text will go here. Answer text will go here. Answer text will go here. Answer text will go here. Answer text will go here. Answer text will go here. Answer text will go here.
+        </p>
+    </div>
+
+    <!-- COMMENTS -->
+    <!-- COMMENTS -->
+
+</div>
 {% endblock %}
