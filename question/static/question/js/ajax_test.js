@@ -27,17 +27,18 @@ $.ajaxSetup({
     }
 });
 
-var questionPk = $('.question').attr('id')
 
 // Grabs answers from the api based on question id
-$.get({
-  url: '../api/question/' + questionPk,
-  success: function(data) {
-    $.each(data.answer_set, function(key, value) {
-      getUsernameAndWriteToPage(value)
-    })
-  }
-})
+function getAnswers(questionPk) {
+  $.get({
+    url: '../api/question/' + questionPk,
+    success: function(data) {
+      $.each(data.answer_set, function(key, value) {
+        getUsernameAndWriteToPage(value)
+      })
+    }
+  })
+}
 
 // Grabs the username from the user api for the answer
 function getUsernameAndWriteToPage(value) {
@@ -59,14 +60,6 @@ function writeAnswersToPage(value, username) {
     '<p>' +value.text + '</p><br /><p>Said by ' + username + ' on ' + value.timestamp + '</p>')
 }
 
-// Submits answer to database without changing page
-$(document).on('submit', '#answerForm', function(e) {
-  var $input = $('#answerField:input')
-  postAnswer($input.val(), userData, questionPk)
-  getUsernameAndWriteToPage()
-  e.preventDefault();
-})
-
 
 // Posts answer to database
 function postAnswer(userInput, userData, questionPk) {
@@ -84,3 +77,16 @@ function postAnswer(userInput, userData, questionPk) {
     dataType: 'json'
   })
 }
+
+
+var questionPk = $('.question').attr('id')
+getAnswers(questionPk)
+
+// Submits answer to database without changing page
+$(document).on('submit', '#answerForm', function(e) {
+  var $input = $('#answerField:input')
+  postAnswer($input.val(), userData, questionPk)
+  $('.answers').empty()
+  getAnswers(questionPk)
+  e.preventDefault();
+})
