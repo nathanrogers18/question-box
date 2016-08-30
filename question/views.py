@@ -51,6 +51,5 @@ def question_detail_test(request): # TODO: Remove when done testing
 
 def ajax_test(request):  # TODO: REMOVE AFTER testing
     question = get_object_or_404(Question, id=1)
-
     context = {'question': question}
     return render(request, 'ajax_test.html', context)
