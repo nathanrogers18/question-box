@@ -76,14 +76,13 @@ class AllQuestionsView(generic.ListView):
         return questions
 
 
-class UserProfileDetail(generic.DetailView):
-    model = UserProfile
-    template_name = 'profile_detail.html'
-    context_object_name = 'profile'
+def user_profile(request, pk):
+    profile = UserProfile.objects.get(pk=pk)
+    context = {
+        'profile': profile
+    }
+    return render(request, 'profile_detail.html', context)
 
-    def get_context_data(self, **kwargs):
-        context = super(UserProfileDetail, self).get_context_data(**kwargs)
-        return context
 
 
 class AllUsersView(generic.ListView):
@@ -94,7 +93,6 @@ class AllUsersView(generic.ListView):
     def get_queryset(self):
         users = User.objects.order_by('last_name')
         return users
-
 
 
 def ask_question(request):
