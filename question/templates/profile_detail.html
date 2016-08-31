@@ -1,0 +1,16 @@
+{% extends "base.html" %} {% load staticfiles %}
+
+
+<title>
+  {% block title %}{% endblock %}
+</title>
+{% block content %}
+<body>
+
+  <h1> {{user.username}} </h1>
+
+  <h1> {{profile.score}} </h1>
+
+
+{% endblock %}
+</body>

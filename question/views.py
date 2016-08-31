@@ -1,5 +1,6 @@
-from django.shortcuts import render, get_object_or_404
-from django.http import HttpResponse
+from django.shortcuts import render, get_object_or_404, render_to_response
+from django.http import HttpResponse, HttpResponseRedirect
+from django.db import models
 from django.views import generic
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
@@ -7,11 +8,19 @@ from .models import UserProfile, Tag, Question, Answer, Comment
 from rest_framework import viewsets
 from .serializers import UserProfileSerializer, TagSerializer, QuestionSerializer
 from .serializers import AnswerSerializer, CommentSerializer, UserSerializer
+from django.template import RequestContext
+from django.views.decorators.csrf import ensure_csrf_cookie, csrf_exempt
 
 
 # Create your views here.
-def index(request):
-    return render(request, 'index.html')
+class IndexView(generic.ListView):
+    model = Question
+    template_name = 'index.html'
+    context_object_name = 'all_questions'
+
+    def get_queryset(self):
+        questions = Question.objects.order_by('vote')
+        return questions
 
 
 class UserViewSet(viewsets.ModelViewSet):
@@ -57,11 +66,34 @@ class SearchView(generic.ListView):
             return searched_topics
 
 
-# TODO: All_questions view
-# class AllQuestionsView(generic.ListView):
-#     model = Question
-#     template_name = 'all_questions.html'
-#     context_object_name = 'all_questions'
+class AllQuestionsView(generic.ListView):
+    model = Question
+    template_name = 'all_questions.html'
+    context_object_name = 'all_questions'
+
+    def get_queryset(self):
+        questions = Question.objects.order_by('timestamp')
+        return questions
+
+
+class UserProfileDetail(generic.DetailView):
+    model = UserProfile
+    template_name = 'profile_detail.html'
+    context_object_name = 'profile'
+
+    def get_context_data(self, **kwargs):
+        context = super(UserProfileDetail, self).get_context_data(**kwargs)
+        return context
+
+class AllUsersView(generic.ListView):
+    model = User
+    template_name = 'all_users.html'
+    context_object_name = 'all_users'
+
+    def get_queryset(self):
+        users = User.objects.order_by('last_name')
+        return users
+
 
 
 def ask_question(request):
@@ -75,7 +107,7 @@ def question_detail(request, question_id):
     return render(request, 'question_detail.html')
 
 
-def question_detail_test(request): # TODO: Remove when done testing
+def question_detail_test(request):  # TODO: Remove when done testing
     # question = get_object_or_404(Question, id=question_id)
     # context = {'question': question}
     return render(request, 'question_detail.html')

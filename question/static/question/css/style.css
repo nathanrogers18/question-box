@@ -1,10 +1,10 @@
 nav.navbar.navbar-dark.bg-inverse {
   width: 100%;
-  height: 40px;
   padding-left: 0;
   position: relative;
   font-size: 14px;
 }
+
 
 input.form-control {
   font-size: 14px;
@@ -12,19 +12,24 @@ input.form-control {
   text-align: left;
 }
 
+
 a.navbar-brand {
   font-size: 16px;
 }
 
 #qbox {
-  width:25px;
-  height:25px;
+  width:40px;
+  height:40px;
 }
 
 #pagebody{
 
 }
 
+.nav.navbar-nav li a{
+  display: inline-block;
+  text-align: right;
+}
 
 #navqs{
   text-decoration: none;
@@ -38,41 +43,27 @@ a.navbar-brand {
   background: #F69C55;
 }
 
-* {
-  border-radius: 0 !important;
+*{
+
 }
 
-nav.nav.navbar-nav {
-  clear: right;
-  float: right;
-  font-size: 17px;
-  margin: 0 0 55px 0;
-  display: inline-block;
-  text-align: right;
+#secondheader{
+
 }
 
-ul.nav.navbar-nav{
-  display: inline-block;
-  padding-right: 0;
-}
-
-div.col-md-6.pull-xs-right{
-  text-align: right;
-}
-<<<<<<< HEAD
-
-
-#sidemenu .nav ul li.youarehere a {
-    color: #FFF;
-    background: #9FA6AD;
-  }
-
-, #sidemenu .nav ul li.youarehere a:hover{
-    background: #F69C55;
-}
+#sidemenu .nav ul li.youarehere a:hover{
+     background: #F69C55;
+ }
 
 .user {
   color: white;
 }
-=======
->>>>>>> 660c103d604b3b47eba3ba4d71f475121831cf61
+
+
+div.col-md-6.pull-xs-right{
+  text-align: right;
+}
+
+.pull-link-right {
+  text-align: right;
+}
