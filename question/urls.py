@@ -5,6 +5,10 @@ from django.views.generic.edit import CreateView
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.views import login, logout
 
+user_detail = views.UserProfileViewSet.as_view({
+    'get': 'retrieve'
+})
+
 urlpatterns = [
     url(r'^$', views.index, name='index'),
     url(r'^register/$', CreateView.as_view(
@@ -14,10 +18,12 @@ urlpatterns = [
 
     ), name='register'),
     url(r'^login/$', login, name='login'),
-    url(r'^logout/$', logout, name='logout'),
+    url(r'^logout/$', logout, {'next_page': '/login'}, name='logout'),
     url(r'^ask/$', views.ask_question, name='ask'),
     url(r'^question/(?P<question_id>[0-9]+)/$',
         views.question_detail, name='question_detail'),
     url(r'^question_test/$', views.question_detail_test, name='question_detail'),  # TODO: Remove this when finished testing
     url(r'^ajax_test/$', views.ajax_test, name='ajax_test'),
+    url(r'^search/$', views.SearchView.as_view(), name='search'),
+    url(r'^profile/(?P<pk>[0-9]+)/$', user_detail, name='profile')
     ]
