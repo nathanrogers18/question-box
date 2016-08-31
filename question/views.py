@@ -67,6 +67,16 @@ class AllQuestionsView(generic.ListView):
         return questions
 
 
+class UserProfileDetail(generic.DetailView):
+    model = UserProfile
+    template_name = 'profile_detail.html'
+    context_object_name = 'profile'
+
+    def get_context_data(self, **kwargs):
+        context = super(UserProfileDetail, self).get_context_data(**kwargs)
+        return context
+
+
 def ask_question(request):
     return render(request, 'ask_question.html')
 
