@@ -27,6 +27,19 @@ a.navbar-brand {
   position: absolute;
 }
 
+
+#navqs{
+  text-decoration: none;
+  color: #FFF;
+  background: #9FA6AD;
+}
+#navqs:hover{
+  background: #F69C55;
+}
+#navqs:active{
+  background: #F69C55;
+}
+
 * {
   border-radius: 0 !important;
 }
@@ -47,14 +60,4 @@ ul.nav.navbar-nav{
 
 div.col-md-6.pull-xs-right{
   text-align: right;
-}
-
-
-#sidemenu .nav ul li.youarehere a {
-    color: #FFF;
-    background: #9FA6AD;
-  }
-
-, #sidemenu .nav ul li.youarehere a:hover{
-    background: #F69C55;
 }

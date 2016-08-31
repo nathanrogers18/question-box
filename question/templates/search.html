@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+
+<head>
+</head>
+{% block content %}
+<h2>Search:</h2>
+<form id="bigsearch" action="/search" method="get">
+        <table>
+            <tbody><tr>
+                <td class="col1"><input name="q" class="textbox" type="text" maxlength="140" size="80" value=""></td>
+                <td class="col2"><input type="submit" value="search"></td>
+            </tr>
+        </tbody></table>
+    </form>
+{{ }} results
+<body>
+  <div class="container">
+    <div class="divider"></div>
+  <ul id='col'>
+    {% for question in search_results %}
+      <li><a href="{% url 'question:question_detail' question.id %}">{{  question.text }}</a></li>
+    {% endfor %}
+  </ul>
+</div>
+</body>
+{% endblock %}
