@@ -1,10 +1,5 @@
-{% extends 'base.html' %}
+{% extends "base.html" %} {% load staticfiles %} {% block content %}
 
-
-<head>
-</head>
-{% block content %}
-<body>
   <div class="container">
   <ul id='col'>
     {% for question in all_questions %}
@@ -12,5 +7,5 @@
     {% endfor %}
   </ul>
 </div>
-</body>
+
 {% endblock %}

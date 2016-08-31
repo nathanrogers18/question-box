@@ -6,6 +6,7 @@
         {% load static %}
     </title>
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.3/css/bootstrap.min.css">
+      <link rel="stylesheet" href="https://bootswatch.com/simplex/bootstrap.min.css">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tokenfield/0.12.0/css/bootstrap-tokenfield.css">
       <link rel="stylesheet" type="text/css" href="{% static 'question/css/style.css' %}" />
   </head>
@@ -20,7 +21,7 @@
           <li class="nav-item active"><a class="nav-link" href="{% url 'profile' user.pk %}">welcome, {{ user.username }}</a></li>
           <li class="nav-item active"><a class="nav-link" href="{% url 'logout' %}">logout</a></li>
           {% else %}
-          <li class="nav-item active"><a class="nav-link" href="{% url 'login' %}">Login</a></li>
+          <li class="nav-item active"><a class="nav-link" href="{% url 'login' %}">log in</a></li>
           <li class="nav-item active">
             <a class="nav-link" href="{% url 'register' %}">sign up<span class="sr-only">(current)</span></a>
           </li>
@@ -54,9 +55,9 @@
     <a id='navqs' href="#">Jobs</a>
     <a id='navqs' href="#">Documentation</a>
     <a id='navqs' href="#">Tags</a>
-    <a id='navqs' href="#">Users</a>
+    <a id='navqs' href="{% url 'all_users' %}">Users</a>
     <a id='navqs' href="#">Badges</a>
-    <a id='navqs' href="#">Ask A Question</a>
+    <a id='navqs' href="{% url 'ask' %}">Ask A Question</a>
   </div>
 </div>
 <div class='row'></div>
