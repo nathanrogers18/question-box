@@ -27,4 +27,5 @@ urlpatterns = [
     url(r'^search/$', views.SearchView.as_view(), name='search'),
     url(r'^profile/(?P<pk>[0-9]+)/$', views.UserProfileDetail.as_view(), name='profile_detail'),
     url(r'^allquestions/$', views.AllQuestionsView.as_view(), name='all_questions'),
+    url(r'^allusers/$', views.AllUsersView.as_view(), name='all_users'),
     ]

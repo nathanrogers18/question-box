@@ -16,5 +16,6 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^', include('question.urls')),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
-    url(r'^api/', include(router.urls))
+    url(r'^api/', include(router.urls)),
+    url(r'^search/$', views.SearchView.as_view(), name='search'),
 ]

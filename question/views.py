@@ -1,5 +1,6 @@
-from django.shortcuts import render, get_object_or_404
-from django.http import HttpResponse
+from django.shortcuts import render, get_object_or_404, render_to_response
+from django.http import HttpResponse, HttpResponseRedirect
+from django.db import models
 from django.views import generic
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
@@ -7,6 +8,8 @@ from .models import UserProfile, Tag, Question, Answer, Comment
 from rest_framework import viewsets
 from .serializers import UserProfileSerializer, TagSerializer, QuestionSerializer
 from .serializers import AnswerSerializer, CommentSerializer, UserSerializer
+from django.template import RequestContext
+from django.views.decorators.csrf import ensure_csrf_cookie, csrf_exempt
 
 
 # Create your views here.
@@ -75,6 +78,16 @@ class UserProfileDetail(generic.DetailView):
     def get_context_data(self, **kwargs):
         context = super(UserProfileDetail, self).get_context_data(**kwargs)
         return context
+
+class AllUsersView(generic.ListView):
+    model = User
+    template_name = 'all_users.html'
+    context_object_name = 'all_users'
+
+    def get_queryset(self):
+        users = User.objects.order_by('last_name')
+        return users
+
 
 
 def ask_question(request):

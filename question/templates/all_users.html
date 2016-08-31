@@ -1,0 +1,14 @@
+{% extends 'base.html' %} {% load staticfiles %} {% block content %}
+
+<head>
+</head>
+<body>
+  <div class="container">
+  <ul id='col'>
+    {% for user in all_users %}
+      <li><a href="{% url 'profile' user.id %}">{{ user.name }}</a></li>
+    {% endfor %}
+  </ul>
+</div>
+</body>
+{% endblock %}
