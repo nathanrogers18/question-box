@@ -54,7 +54,7 @@ function writeAnswersToPage(data, userData) {
   $('.answers').append(
     '<p>' + data.text + '</p><br /><p>Said by ' + userData.username + ' on ' + timestamp + '</p>')
 }
-  $('#answerField').empty()
+  $('#answerField').reset()
 
 var questionPk = $('.question').attr('id')
 
@@ -63,5 +63,5 @@ var questionPk = $('.question').attr('id')
 $(document).on('submit', '#answerForm', function(e) {
   var $input = $('#answerField:input')
   postAnswer($input.val(), userData, questionPk)
-  e.preventDefault();
+  return false
 })
