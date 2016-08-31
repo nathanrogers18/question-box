@@ -70,6 +70,7 @@ def ask_question(request):
 
 def question_detail(request, question_id):
     question = get_object_or_404(Question, id=question_id)
+    answers = question.answer_set
     context = {'question': question}
     return render(request, 'question_detail.html')
 

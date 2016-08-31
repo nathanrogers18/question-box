@@ -22,7 +22,7 @@ class Question(models.Model):
     user = models.ForeignKey(User)
     title = models.CharField(max_length=200)
     text = models.TextField()
-    tag = models.ManyToManyField(Tag)
+    tag = models.ManyToManyField(Tag, blank=True, null=True)
     vote = models.IntegerField(default=0)
     timestamp = models.DateTimeField(auto_now_add=True)
 
