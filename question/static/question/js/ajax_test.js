@@ -28,10 +28,16 @@ function writeAnswersToPage(data, userData) {
 
 var questionPk = $('.question').attr('id')
 
-
 // Submits answer to database without changing page
 $(document).on('submit', '#answerForm', function(e) {
   var $input = $('#answerField:input')
   postAnswer($input.val(), userData, questionPk)
+  return false
+})
+
+
+$(document).on('submit', '#new_question_form', function(e) {
+  var $input = $('#question_text:input')
+  console.log($input)
   return false
 })

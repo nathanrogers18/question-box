@@ -84,6 +84,7 @@ def user_profile(request, pk):
     return render(request, 'profile_detail.html', context)
 
 
+
 class AllUsersView(generic.ListView):
     model = User
     template_name = 'all_users.html'
@@ -100,15 +101,46 @@ def ask_question(request):
 
 def question_detail(request, question_id):
     question = get_object_or_404(Question, id=question_id)
-    answers = question.answer_set
-    context = {'question': question}
-    return render(request, 'question_detail.html')
+    try:
+        question_tags = question.tag_set
+    except:
+        question_tags = None
+        print("No tags for question")
+    try:
+        question_comments = question.comment_set
+    except:
+        question_comments = None
+        print("No comments for question")
+    try:
+        answers = question.answer_set
+        answer_tags_and_comments = []
+        for answer in answers:
+            ans = {'answer': answer}
+            try:
+                ans['tag_set'] = answer.tag_set
+            except:
+                ans['tag_set'] = None
+            try:
+                ans['comment_set'] = answer.comment_set
+            except:
+                ans['comment_set'] = None
+
+            answer_tags_and_comments.append(ans)
+    except:
+        answers = None
+        print("No answers for question")
+
+    context = {'question': question,
+               'question_tags': question_tags,
+               'question_comments': question_comments,
+               'answer': answer_tags_and_comments}
+
+    return render(request, 'question_detail.html', context)
 
 
 def question_detail_test(request):  # TODO: Remove when done testing
-    # question = get_object_or_404(Question, id=question_id)
-    # context = {'question': question}
     return render(request, 'question_detail.html')
+
 
 @login_required
 def ajax_test(request):  # TODO: REMOVE AFTER testing
