@@ -1,4 +1,4 @@
-nav.navbar.navbar-dark.bg-inverse {
+/*nav.navbar.navbar-dark.bg-inverse {
   width: 100%;
   height: 40px;
   padding-left: 0;
@@ -25,6 +25,19 @@ a.navbar-brand {
 
 }
 
+#sidenav{
+  width: 100%;
+  display: inline-block;
+}*/
+
+/*.nav.navbar-nav li a{
+  clear: right;
+  float: right;
+  font-size: 17px;
+  margin: 0 0 55px 0;
+  display: inline-block;
+  text-align: right;
+}*/
 
 #navqs{
   text-decoration: none;
@@ -38,11 +51,11 @@ a.navbar-brand {
   background: #F69C55;
 }
 
-* {
-  border-radius: 0 !important;
+*{
+
 }
 
-nav.nav.navbar-nav {
+/* nav.nav.navbar-nav {
   clear: right;
   float: right;
   font-size: 17px;
@@ -57,5 +70,9 @@ ul.nav.navbar-nav{
 }
 
 div.col-md-6.pull-xs-right{
+  text-align: right;
+}*/
+
+.pull-link-right {
   text-align: right;
 }
