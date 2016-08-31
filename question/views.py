@@ -103,27 +103,28 @@ def ask_question(request):
 
 def question_detail(request, question_id):
     question = get_object_or_404(Question, id=question_id)
+    print(question.title)
     try:
-        question_tags = question.tag_set
+        question_tags = question.tag_set.all()
     except:
         question_tags = None
         print("No tags for question")
     try:
-        question_comments = question.comment_set
+        question_comments = question.comment_set.all()
     except:
         question_comments = None
         print("No comments for question")
     try:
-        answers = question.answer_set
+        answers = question.answer_set.all()
         answer_tags_and_comments = []
         for answer in answers:
             ans = {'answer': answer}
             try:
-                ans['tag_set'] = answer.tag_set
+                ans['tag_set'] = answer.tag_set.all()
             except:
                 ans['tag_set'] = None
             try:
-                ans['comment_set'] = answer.comment_set
+                ans['comment_set'] = answer.comment_set.all()
             except:
                 ans['comment_set'] = None
 
@@ -136,7 +137,6 @@ def question_detail(request, question_id):
                'question_tags': question_tags,
                'question_comments': question_comments,
                'answer': answer_tags_and_comments}
-
     return render(request, 'question_detail.html', context)
 
 

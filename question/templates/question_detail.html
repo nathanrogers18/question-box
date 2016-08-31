@@ -1,53 +1,62 @@
-{% extends "base.html" %} {% load staticfiles %} {% block content %}
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block content %}
+
+<!-- TODO: Fix links! -->
 
 <!-- QUESTION -->
-<h2>Question Title Here</h2>
+<h2>{{ question.title }}</h2>
 <div class="row" id="question_row">
 
     <!-- VOTE -->
     <div class="col-xs-4 col-sm-3 col-md-2 col-lg-1" id="vote">
         <ul>
            <li id="vote"><button type="button" class="btn btn-outline-primary">+</button></li>
-           <li id="vote_counter">Counter</li>
+           <li id="vote_counter">{{ question.vote }}</li>
            <li id="vote"> <button type="button" class="btn btn-outline-primary">-</button></li>
        </ul>
     </div>
+
     <!-- QUESTION TEXT -->
     <div class="col-xs-8 col-sm-9 col-md-10 col-lg-11" id="question_text">
         <p>
-            Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text, Question Text
+            {{ question.text }}
         </p>
     </div>
 
 </div>
 
 <!-- TAG LIST -->
+{% if question_tags %}
 <ul class="list-inline" id="tag_list">
-    <a href="#" class="list-item list-item-action list-group-item-info">Python</a>
-    <a href="#" class="list-item list-item-action list-group-item-info">Java</a>
-    <a href="#" class="list-item list-item-action list-group-item-info">SQL</a>
+    {% for tag in question_tags %}
+    <a href="#" class="list-item list-item-action list-group-item-info">{{ tag.topic }}</a>
+    {% endfor %}
 </ul>
-
+{% endif %}
 <!-- USER -->
 <p>
     Question asked by
-    <a href="#" class="list-item list-item-action">Nathan</a>
-    at TIMESTAMP
+    <a href="#" class="list-item list-item-action">{{ question.user }}</a>
+    at {{ question.timestamp }}
 </p>
 
 <!-- COMMENTS -->
 <ul class="list-group">
 
         <!-- COMMENT LIST-->
+{% if question_comments %}
         <ul class="list-group">
+            {% for comment in question_comments %}
             <li class="list-group-item" id="comment">
-                Comment text will go here. Comment text will go here. Comment text will go here. Comment text will go here. Comment text will go here. Comment text will go here.
+                {{ comment.text }}
                 -
-                <a href="#" class="list-item list-item-action">Nathan</a>
-                at TIMESTAMP
+                <a href="#" class="list-item list-item-action">{{ comment.user }}</a>
+                at {{ comment.timestamp }}
             </li>
+            {% endfor %}
         </ul>
-
+{% endif %}
         <!-- ADD COMMENTS -->
         <p>
             <button id="add_comment_button" class="btn btn-primary" type="button" data-toggle="collapse" data-target="#create_comment" aria-expanded="false" aria-controls="collapseExample">
