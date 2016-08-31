@@ -6,6 +6,7 @@
         {% load static %}
     </title>
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.3/css/bootstrap.min.css">
+      <link rel="stylesheet" href="https://bootswatch.com/simplex/bootstrap.min.css">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tokenfield/0.12.0/css/bootstrap-tokenfield.css">
       <link rel="stylesheet" type="text/css" href="{% static 'question/css/style.css' %}" />
   </head>
@@ -13,14 +14,14 @@
   <nav class="navbar navbar-dark bg-inverse">
     <img class='pull-xs-left' id='qbox' alt="Embedded Image" src='data:image/png;base64,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'/>
 
-      <a class="navbar-brand" href="{% url 'index' %}">Box of Questions</a>
+      <a class="navbar-brand" href="{% url 'index' %}">Box of Question</a>
 
         <ul class="nav navbar-nav pull-xs-right">
           {% if user.is_authenticated %}
-          <li class="nav-item active"><a class="nav-link" href="{% url 'profile' user.pk %}">Welcome {{ user.username }}</a></li>
-          <li class="nav-item active"><a class="nav-link" href="{% url 'logout' %}">Logout</a></li>
+          <li class="nav-item active"><a class="nav-link" href="{% url 'profile_detail' user.pk %}">welcome, {{ user.username }}</a></li>
+          <li class="nav-item active"><a class="nav-link" href="{% url 'logout' %}">logout</a></li>
           {% else %}
-          <li class="nav-item active"><a class="nav-link" href="{% url 'login' %}">Login</a></li>
+          <li class="nav-item active"><a class="nav-link" href="{% url 'login' %}">log in</a></li>
           <li class="nav-item active">
             <a class="nav-link" href="{% url 'register' %}">sign up<span class="sr-only">(current)</span></a>
           </li>
@@ -47,34 +48,26 @@
   </div>
   </nav>
 <div id='pagebody' class="container">
-<div class="row">
-  <div id="header">
-    <div class="col-xl-4"></div>
-      <div class="col-xl-8 pull-xl-right">
-        <div id='sidemenu'>
-          <nav class="nav navbar-nav">
-            <ul class="nav navbar-nav">
-              <li class='youarehere'> <a id='navqs' href="#">Questions</a>
-                <a id='navqs' href="#">Jobs</a>
-                <a id='navqs' href="#">Documentation</a>
-                <a id='navqs' href="#">Tags</a>
-                <a id='navqs' href="#">Users</a>
-                <a id='navqs' href="#">Badges</a>
-                <a id='navqs' href="#">Ask A Question</a>
-              </li>
-            </ul>
-          </nav>
-        </div>
-      </div>
-    </div>
+<div class='row m-t-0' id='secondheader'>
+  <div class="col-xl-4"></div>
+  <div class="col-xl-8 pull-xl-right pull-link-right">
+    <a id='navqs' href="{% url 'all_questions' %}">Questions</a>
+    <a id='navqs' href="#">Jobs</a>
+    <a id='navqs' href="#">Documentation</a>
+    <a id='navqs' href="#">Tags</a>
+    <a id='navqs' href="{% url 'all_users' %}">Users</a>
+    <a id='navqs' href="#">Badges</a>
+    <a id='navqs' href="{% url 'ask' %}">Ask A Question</a>
+  </div>
 </div>
 <div class='row'></div>
-
-<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    {% block content %}{% endblock %}
+</div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tokenfield/0.12.0/bootstrap-tokenfield.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.3/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tokenfield/0.12.0/bootstrap-tokenfield.js"></script>
 <script type="text/javascript" scr="{% static 'question/js/cookie.js' %}"></script>
-{% block content %}{% endblock %}</div>
+{% block scripts %}{% endblock %}
 </body>
+
 </html>

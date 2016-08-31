@@ -20,7 +20,7 @@
     <div class="divider"></div>
   <ul id='col'>
     {% for question in search_results %}
-      <li><a href="{% url 'question:question_detail' question.id %}">{{  question.text }}</a></li>
+      <li><a href="{% url 'question_detail' question.id %}">{{  question.title }}</a></li>
     {% endfor %}
   </ul>
 </div>

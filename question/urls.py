@@ -10,7 +10,7 @@ user_detail = views.UserProfileViewSet.as_view({
 })
 
 urlpatterns = [
-    url(r'^$', views.index, name='index'),
+    url(r'^$', views.IndexView.as_view(), name='index'),
     url(r'^register/$', CreateView.as_view(
             template_name='registration/register.html',
             form_class=UserCreationForm,
@@ -25,5 +25,7 @@ urlpatterns = [
     url(r'^question_test/$', views.question_detail_test, name='question_detail'),  # TODO: Remove this when finished testing
     url(r'^ajax_test/$', views.ajax_test, name='ajax_test'),
     url(r'^search/$', views.SearchView.as_view(), name='search'),
-    url(r'^profile/(?P<pk>[0-9]+)/$', user_detail, name='profile')
+    url(r'^profile/(?P<pk>[0-9]+)/$', views.UserProfileDetail.as_view(), name='profile_detail'),
+    url(r'^allquestions/$', views.AllQuestionsView.as_view(), name='all_questions'),
+    url(r'^allusers/$', views.AllUsersView.as_view(), name='all_users'),
     ]
