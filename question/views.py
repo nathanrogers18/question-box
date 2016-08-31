@@ -13,8 +13,14 @@ from django.views.decorators.csrf import ensure_csrf_cookie, csrf_exempt
 
 
 # Create your views here.
-def index(request):
-    return render(request, 'index.html')
+class IndexView(generic.ListView):
+    model = Question
+    template_name = 'index.html'
+    context_object_name = 'all_questions'
+
+    def get_queryset(self):
+        questions = Question.objects.order_by('vote')
+        return questions
 
 
 class UserViewSet(viewsets.ModelViewSet):
