@@ -10,7 +10,7 @@ user_detail = views.UserProfileViewSet.as_view({
 })
 
 urlpatterns = [
-    url(r'^$', views.index, name='index'),
+    url(r'^$', views.IndexView.as_view(), name='index'),
     url(r'^register/$', CreateView.as_view(
             template_name='registration/register.html',
             form_class=UserCreationForm,
