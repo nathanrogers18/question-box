@@ -57,6 +57,13 @@ class SearchView(generic.ListView):
             return searched_topics
 
 
+# TODO: All_questions view
+# class AllQuestionsView(generic.ListView):
+#     model = Question
+#     template_name = 'all_questions.html'
+#     context_object_name = 'all_questions'
+
+
 def ask_question(request):
     return render(request, 'ask_question.html')
 
