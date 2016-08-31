@@ -15,7 +15,6 @@ urlpatterns = [
             template_name='registration/register.html',
             form_class=UserCreationForm,
             success_url='/'
-
     ), name='register'),
     url(r'^login/$', login, name='login'),
     url(r'^logout/$', logout, {'next_page': '/login'}, name='logout'),
@@ -25,7 +24,8 @@ urlpatterns = [
     url(r'^question_test/$', views.question_detail_test, name='question_detail'),  # TODO: Remove this when finished testing
     url(r'^ajax_test/$', views.ajax_test, name='ajax_test'),
     url(r'^search/$', views.SearchView.as_view(), name='search'),
-    url(r'^profile/(?P<pk>[0-9]+)/$', views.UserProfileDetail.as_view(), name='profile_detail'),
+    url(r'^profile/(?P<pk>[0-9]+)/$', views.user_profile, name='profile_detail'),
+    # url(r'^profile/(?P<pk>[0-9]+)/$', views.UserProfileDetail.as_view(), name='profile_detail'),
     url(r'^allquestions/$', views.AllQuestionsView.as_view(), name='all_questions'),
     url(r'^allusers/$', views.AllUsersView.as_view(), name='all_users'),
     ]
