@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+
+<head>
+</head>
+{% block content %}
+<body>
+  <div class="container">
+  <ul id='col'>
+    {% for question in all_questions %}
+      <li><a href="{% url 'question_detail' question.id %}">{{ question.title }}</a></li>
+    {% endfor %}
+  </ul>
+</div>
+</body>
+{% endblock %}

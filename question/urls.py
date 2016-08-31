@@ -25,5 +25,6 @@ urlpatterns = [
     url(r'^question_test/$', views.question_detail_test, name='question_detail'),  # TODO: Remove this when finished testing
     url(r'^ajax_test/$', views.ajax_test, name='ajax_test'),
     url(r'^search/$', views.SearchView.as_view(), name='search'),
-    url(r'^profile/(?P<pk>[0-9]+)/$', user_detail, name='profile')
+    url(r'^profile/(?P<pk>[0-9]+)/$', user_detail, name='profile'),
+    url(r'^allquestions/$', views.AllQuestionsView.as_view(), name='all_questions'),
     ]

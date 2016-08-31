@@ -57,11 +57,14 @@ class SearchView(generic.ListView):
             return searched_topics
 
 
-# TODO: All_questions view
-# class AllQuestionsView(generic.ListView):
-#     model = Question
-#     template_name = 'all_questions.html'
-#     context_object_name = 'all_questions'
+class AllQuestionsView(generic.ListView):
+    model = Question
+    template_name = 'all_questions.html'
+    context_object_name = 'all_questions'
+
+    def get_queryset(self):
+        questions = Question.objects.order_by('timestamp')
+        return questions
 
 
 def ask_question(request):
@@ -74,7 +77,7 @@ def question_detail(request, question_id):
     return render(request, 'question_detail.html')
 
 
-def question_detail_test(request): # TODO: Remove when done testing
+def question_detail_test(request):  # TODO: Remove when done testing
     # question = get_object_or_404(Question, id=question_id)
     # context = {'question': question}
     return render(request, 'question_detail.html')
