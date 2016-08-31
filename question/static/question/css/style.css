@@ -76,3 +76,20 @@ div.col-md-6.pull-xs-right{
 .pull-link-right {
   text-align: right;
 }
+<<<<<<< HEAD
+
+
+#sidemenu .nav ul li.youarehere a {
+    color: #FFF;
+    background: #9FA6AD;
+  }
+
+, #sidemenu .nav ul li.youarehere a:hover{
+    background: #F69C55;
+}
+
+.user {
+  color: white;
+}
+=======
+>>>>>>> 660c103d604b3b47eba3ba4d71f475121831cf61
