@@ -1,6 +1,8 @@
 {% extends "base.html" %}
 {% load staticfiles %}
 {% block content %}
+<div id="needspadding">
+
 
 
 <form id="new_question_form" method="post" action="">
@@ -21,6 +23,7 @@
     </div>
     <button type="submit" class="btn btn-primary" id="submit_question_but">Submit</button>
 </form>
+</div>
 <script type="text/javascript">
     var userId = {{ user.id }}
 </script>

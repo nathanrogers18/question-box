@@ -1,32 +1,42 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
-
-
-<head>
-</head>
 {% block content %}
+<head></head>
+<body>
+  <div class="container" id="needspadding">
+  <div class="col-xl-4">
 <h2>Search:</h2>
     <form id="bigsearch" action="/search" method="get">
       {% csrf_token %}
         <table>
             <tbody>
               <tr>
-                <td class="col1"><input name="q" class="textbox" type="text" maxlength="140" size="80" value=""></td>
+                <td class="col1"><input name="q" class="textbox" type="text" maxlength="140" size="60" value=""></td>
                 <td class="col2"><input type="submit" value="search"></td>
               </tr>
           </tbody>
       </table>
     </form>
-  <div class="divider"></div>
-<h2>Results:<h2>
-<body>
-  <div class="container">
-    <div class="divider"></div>
-  <ul id='col'>
-    {% for question in search_results %}
-      <li><a href="{% url 'question_detail' question.id %}">{{  question.title }}</a></li>
-    {% endfor %}
-  </ul>
+  </div>
 </div>
+  <div class="container" id="needspadding">
+  <div class="col-xl-4">
+  {% if search_results %}
+<h2>Search Results<h2>
+    {% for question in search_results %}
+    <div class="list-group">
+    <a href="{% url 'question_detail' question.id %}" class="list-group-item list-group-item-action">
+      <h5 class="list-group-item-heading">{{question.title}}</h5>
+      <p class="list-group-item-text">Posted: {{question.timestamp}}<br />
+        By: {{ question.user }}
+      </p>
+    </a>
+    </div>
+    {% endfor %}
+  {% else %}
+  <h2>Try your search again.<h2>
+    {% endif %}
+  </div>
+  </div>
 </body>
 {% endblock %}

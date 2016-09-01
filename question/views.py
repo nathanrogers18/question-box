@@ -55,15 +55,15 @@ class AnswerViewSet(viewsets.ModelViewSet):
 
 class SearchView(generic.ListView):
     model = Question
-    select_related = ['title']
+    select_related = ['text']
     template_name = 'search.html'
     context_object_name = 'search_results'
 
     def get_queryset(self):
         query = self.request.GET.get("q")
         if query:
-            searched_titles = self.model.objects.filter(title__icontains=query)
-            return searched_titles
+            searched_content = self.model.objects.filter(text__icontains=query)
+            return searched_content
 
 
 class AllQuestionsView(generic.ListView):

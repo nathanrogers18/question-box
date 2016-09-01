@@ -1,7 +1,16 @@
-{% extends "base.html" %} {% load staticfiles %} {% block content %}
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block title %}Register{% endblock %}
+
+{% block content %}
+<head></head>
+<body>
+<div class="container" id="needspadding">
 <form method=POST>
+<h2> Register </h2>
 {% csrf_token %}
 {{ form.as_p }}
-<button type='submit'>Submit</button>
+<button type='submit'>submit</button>
 </form>
 {% endblock %}
