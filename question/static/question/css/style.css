@@ -59,6 +59,11 @@ h1, h2, h3, h4 {
   font-family: 'Leckerli One', cursive;
 }
 
+div.img-with-text{
+  display: inline-block;
+  text-align: center;
+}
+
 .user {
   color: white;
 }

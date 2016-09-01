@@ -1,11 +1,15 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
+
+{% block title %}Search Results{% endblock %}
+
 {% block content %}
 <head></head>
 <body>
   <div class="container" id="needspadding">
+    <div class='row'>
   <div class="col-xl-4">
-<h2>Search:</h2>
+    <h2>Search:</h2>
     <form id="bigsearch" action="/search" method="get">
       {% csrf_token %}
         <table>
@@ -19,17 +23,18 @@
     </form>
   </div>
 </div>
-  <div class="container" id="needspadding">
+  <div id="needspadding">
+    <div class="row">
   <div class="col-xl-4">
   {% if search_results %}
 <h2>Search Results:<h2>
     {% for question in search_results %}
     <div class="list-group">
-    <a href="{% url 'question_detail' question.id %}" class="list-group-item list-group-item-action">
-      <h5 class="list-group-item-heading">{{question.title}}</h5>
-      <p class="list-group-item-text">Posted: {{question.timestamp}}<br />
-        By: {{ question.user }}
-      </p>
+      <a href="{% url 'question_detail' question.id %}" class="list-group-item list-group-item-action">
+        <h5 class="list-group-item-heading">{{question.title}}</h5>
+        <p class="list-group-item-text">Posted: {{question.timestamp}}<br />
+          By: {{ question.user }}
+        </p>
     </a>
     </div>
     {% endfor %}
@@ -38,5 +43,7 @@
     {% endif %}
   </div>
   </div>
+</div>
+</div>
 </body>
 {% endblock %}

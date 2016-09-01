@@ -29,7 +29,7 @@
           </li>
           {% endif %}
             <li class="nav-item">
-              <form class="form-inline navbar-form pull-xs-right" action="{% url 'search' %}" role="search" id='search' method="get" accept-charset="utf-8">
+              <form class="navbar-form navbar-right" action="{% url 'search' %}" role="search" id='search' method="get" accept-charset="utf-8">
               {% csrf_token %}
               <div class="form-group">
                 <input class="form-control" type="search" placeholder="Search Q&A" name='q' results="0">
@@ -47,7 +47,7 @@
   <div class="col-xl-4 pull-xs-right pull-link-right">
     <div class="img-with-text">
       <a class="navbar-brand" href="{% url 'index' %}">
-      <img class='pull-xs-right' id='bbox' src='{% static 'question/images/haystack.img' %}'><h1>Haystack</h1></a>
+      <img class='pull-xs-right' style="vertical-align:middle" id='bbox' src='{% static 'question/images/haystack.img' %}'><h3>Haystack</h3></a>
     </div>
   </div>
 </div>
