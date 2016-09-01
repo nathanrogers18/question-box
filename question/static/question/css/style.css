@@ -51,6 +51,14 @@ a.navbar-brand {
 
 }
 
+a{
+
+}
+
+h2, h3 {
+  font-family: 'Passion One', cursive;
+}
+
 #sidemenu .nav ul li.youarehere a:hover{
      background: #F69C55;
  }

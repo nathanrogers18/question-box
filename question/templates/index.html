@@ -7,28 +7,21 @@
 <head>
 </head>
 <body>
- <div class="container">
-   <div class="col-xl-6">
-     <h2>Top Questions</h2>
-       <table class="table table-striped table-hover ">
-           <thead>
-               <tr>
-                   <th></th>
-                   <th>Title</th>
-                   <th>Score</th>
-               </tr>
-           </thead>
-           <tbody>
-               {% for question in all_questions %}
-               <tr>
-                   <td></td>
-                   <td><a href="{% url 'question_detail' question.id %}">{{question.title}}</td>
-                   <td>{{question.vote}}</td>
-               </tr>
-               {% endfor %}
-           </tbody>
-       </table>
-   </div>
-</div>
-</body>
+  <div class="container">
+    <div class="col-xl-4">
+      <h2>Top Questions</h2>
+        {% for question in all_questions %}
+        <div class="list-group">
+          <a href="{% url 'question_detail' question.id %}" class="list-group-item list-group-item-action">
+            <h5 class="list-group-item-heading">{{question.title}}</h5>
+            <p class="list-group-item-text">Posted: {{question.timestamp}}<br />
+              By: {{ question.user }}<br />
+              Vote count: {{question.vote}}
+            </p>
+          </a>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+ </body>
 {% endblock %}
