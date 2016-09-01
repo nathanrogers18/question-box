@@ -31,13 +31,15 @@
         <li class="nav-item">
           <a class="nav-link" href="#">help</a>
         </li>
-        <li class="nav-item dropdown">
-            <li class="nav-item"><form class="form-inline navbar-form pull-xs-right" role="search" method="get" accept-charset="utf-8">
+          <li class="nav-item dropdown">
+            <li class="nav-item">
+              <form class="form-inline navbar-form pull-xs-right" role="search" method="get" accept-charset="utf-8">
               <div class="form-group">
                 {% csrf_token %}
                 <input class="form-control" type="search" placeholder="Search Q&A" name='q' results="0">
-            </form> </li>
-        </li>
+              </form>
+            </li>
+          </li>
       </ul>
   </div>
   </nav>
