@@ -80,6 +80,6 @@ div.col-md-6.pull-xs-right{
   text-align: center;
 }
 
-#vote, #vote_counter {
+#vote, #vote_counter, #question_vote_up, #question_vote_down, #question_vote_counter {
     list-style: none;
 }

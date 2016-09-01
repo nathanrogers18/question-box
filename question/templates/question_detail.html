@@ -10,11 +10,12 @@
     <!-- VOTE -->
     <div class="col-xs-4 col-sm-3 col-md-2 col-lg-1" id="vote">
         <ul>
-            <li id="vote">
+            <li id="question_vote_up">
                 <button type="button" class="btn btn-outline-primary">+</button>
             </li>
-            <li id="vote_counter">{{ question.vote }}</li>
-            <li id="vote">
+            <!-- TODO: Replace with actual value of question.vote once we have ajax working -->
+            <li id="question_vote_counter">0</li>
+            <li id="question_vote_down">
                 <button type="button" class="btn btn-outline-primary">-</button>
             </li>
         </ul>
