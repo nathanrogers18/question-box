@@ -3,14 +3,27 @@ nav.navbar.navbar-dark.bg-inverse {
   padding-left: 0;
   position: relative;
   font-size: 14px;
+  height: 18px;
+  line-height:10px;
 }
 
+ul.nav.navbar-nav.pull-xs-right li a:hover {
+  text-color: #ECE8E6;
+  background: none;
+}
 
 input.form-control {
   font-size: 14px;
-  padding: 0 15px;
+  /*padding: 0 10px;*/
   text-align: left;
 }
+
+
+#search{
+  width: auto;
+  height: 10px;
+}
+
 
 a.navbar-brand {
   font-size: 16px;
@@ -18,83 +31,45 @@ a.navbar-brand {
 }
 
 #qbox {
-  width:30px;
-  height:30px;
+  width:25px;
+  height:25px;
   border-radius: 50%;
-}
-
-.img-with-text {
-    text-align: center;
-}
-
-.img-with-text img {
-    display: block;
-    margin: 0 auto;
 }
 
 #bbox {
   width:50px;
   height:50px;
   border-radius: 50%;
-}
-
-
-#pagebody{
-
-}
-
-.nav.navbar-nav li a{
-  display: inline-block;
-  text-align: right;
+  display: block;
+  margin: 0 auto;
 }
 
 #needspadding {
   margin-top: 1cm;
 }
 
-#navqs{
-  text-decoration: none;
-  color: #FFF;
-  background: #9FA6AD;
-}
-#navqs:hover{
-  background: #F69C55;
-}
-#navqs:active{
-  background: #F69C55;
+#pagebody {
+  margin-bottom: 3cm;
 }
 
 *{
   font-family: 'Arimo', sans-serif;
 }
 
-#secondheader{
-
-}
-
-a{
-
-}
-
-h2, h3, h4 {
+h1, h2, h3, h4 {
   font-family: 'Leckerli One', cursive;
 }
-
-#sidemenu .nav ul li.youarehere a:hover{
-     background: #F69C55;
- }
 
 .user {
   color: white;
 }
-
 
 div.col-md-6.pull-xs-right{
   text-align: right;
 }
 
 .pull-link-right {
-  text-align: right;
+  text-align: center;
 }
 
 #vote, #vote_counter {

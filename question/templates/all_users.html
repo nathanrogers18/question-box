@@ -9,14 +9,14 @@
 <body>
   <div class="container"id="needspadding">
     <div class="col-md-6">
-      <h2>Users</h2>
-
+      <h2>Users:</h2>
             {% for user in all_users %}
-            <ul class="list-group">
-              <li class="list-group-item"><a href="{% url 'profile_detail' user.id %}">{{ user.username }}</li>
-            </ul>
-            {% endfor %}
-
+            <div class="list-group">
+              <a href="{% url 'profile_detail' user.id %}" class="list-group-item list-group-item-action">
+                <h5 class="list-group-item-heading">{{ user.username }}</h5>
+              </a>
+            </div>
+          {% endfor %}
     </div>
   </div>
 </body>

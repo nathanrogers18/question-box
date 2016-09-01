@@ -9,7 +9,7 @@
 <body>
   <div class="container" id="needspadding">
     <div class="col-xl-4">
-      <h2>Top Questions</h2>
+      <h2>Top Questions:</h2>
         {% for question in all_questions %}
         <div class="list-group">
           <a href="{% url 'question_detail' question.id %}" class="list-group-item list-group-item-action">

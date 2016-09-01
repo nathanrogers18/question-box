@@ -15,45 +15,42 @@
   <nav class="navbar navbar-dark bg-inverse">
     <a class="navbar-brand" href="{% url 'index' %}"><img class='pull-xs-left' id='qbox' src='{% static 'question/images/haystack.img' %}'></a>
         <ul class="nav navbar-nav pull-xs-right">
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'ask' %}">ask!</a>
+          </li>
           {% if user.is_authenticated %}
-          <li class="nav-item active"><a class="nav-link" href="{% url 'profile_detail' user.pk %}">welcome, {{ user.username }}</a></li>
           <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}">logout</a></li>
+          <li class="nav-item"><a class="nav-link" href="{% url 'profile_detail' user.pk %}">welcome, {{ user.username }}</a></li>
           {% else %}
-          <li class="nav-item active">
+          <li class="nav-item">
             <a class="nav-link" href="{% url 'login' %}">log in</a></li>
-          <li class="nav-item active">
+          <li class="nav-item">
             <a class="nav-link" href="{% url 'register' %}">sign up<span class="sr-only">(current)</span></a>
           </li>
           {% endif %}
-        <li class="nav-item active">
-          <a class="nav-link" href="{% url 'ask' %}">ask</a>
-        </li>
-          <li class="nav-item dropdown">
             <li class="nav-item">
-              <form class="form-inline navbar-form pull-xs-right" role="search" method="get" accept-charset="utf-8">
+              <form class="form-inline navbar-form pull-xs-right" role="search" id='search' method="get" accept-charset="utf-8">
               <div class="form-group">
                 {% csrf_token %}
                 <input class="form-control" type="search" placeholder="Search Q&A" name='q' results="0">
               </form>
             </li>
-          </li>
       </ul>
   </div>
   </nav>
 <div id='pagebody' class="container">
 <div class='row m-t-0' id='secondheader'>
-  <div class="col-xl-8 pull-xl-right pull-link-left">
-    <a id='navqs' href="{% url 'all_questions' %}">Questions</a>
-    <a id='navqs' href="{% url 'all_users' %}">Users</a>
+  <div class="col-xl-8 pull-xl-left pull-link-left">
+    <a href="{% url 'all_questions' %}" class="btn btn-outline-secondary btn-md active" role="button" aria-pressed="true">Questions</a>
+    <a href="{% url 'all_users' %}" class="btn btn-outline-secondary btn-md active" role="button" aria-pressed="true">Users</a>
   </div>
-  <div class="col-xl-4 pull-link-right">
+  <div class="col-xl-4 pull-xs-right pull-link-right">
     <div class="img-with-text">
       <a class="navbar-brand" href="{% url 'index' %}">
-      <img class='pull-xs-right' id='bbox' src='{% static 'question/images/haystack.img' %}'><p><h4>Haystack</h4><p></a>
-  </div>
+      <img class='pull-xs-right' id='bbox' src='{% static 'question/images/haystack.img' %}'><h1>Haystack</h1></a>
+    </div>
   </div>
 </div>
-<div class='row'></div>
     {% block content %}{% endblock %}
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
