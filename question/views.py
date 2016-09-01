@@ -83,6 +83,7 @@ def user_profile(request, pk):
     }
     return render(request, 'profile_detail.html', context)
 
+
 class AllUsersView(generic.ListView):
     model = User
     template_name = 'all_users.html'
