@@ -7,12 +7,15 @@ from django.db.models.signals import post_save
 class UserProfile(models.Model):
     user = models.OneToOneField(User)
     score = models.IntegerField(default=0)
+    avatar = models.ImageField()
 
     def create_user_profile(sender, instance, created, **kwargs):
         if created:
             UserProfile.objects.create(user=instance)
 
-
+    def set_avatar(self):
+        self.has_picture = True
+        
     def __str__(self):
         return "{} has {} points".format(self.user, self.score)
 

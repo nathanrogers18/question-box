@@ -112,19 +112,19 @@ def question_detail(request, question_id):
         print("No comments for question")
     try:
         answers = question.answer_set.all()
-        answer_tags_and_comments = []
+        answers_tags_and_comments = []
         for answer in answers:
             ans = {'answer': answer}
             try:
-                ans['tag_set'] = answer.tag_set.all()
+                ans['tags'] = answer.tag_set.all()
             except:
-                ans['tag_set'] = None
+                ans['tags'] = None
             try:
-                ans['comment_set'] = answer.comment_set.all()
+                ans['comments'] = answer.comment_set.all()
             except:
-                ans['comment_set'] = None
+                ans['comments'] = None
 
-            answer_tags_and_comments.append(ans)
+            answers_tags_and_comments.append(ans)
     except:
         answers = None
         print("No answers for question")
@@ -132,7 +132,7 @@ def question_detail(request, question_id):
     context = {'question': question,
                'question_tags': question_tags,
                'question_comments': question_comments,
-               'answer': answer_tags_and_comments}
+               'answers': answers_tags_and_comments}
     return render(request, 'question_detail.html', context)
 
 

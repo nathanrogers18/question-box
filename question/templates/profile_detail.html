@@ -1,16 +1,25 @@
 {% extends "base.html" %} {% load staticfiles %}
 
-
 <title>
   {% block title %}{% endblock %}
 </title>
+
 {% block content %}
 <body>
-
-
+<div class="container">
+<col class="col-md-3">
+  {% if user.avatar == None %}
+      <img src="http://www.herpes-coldsores.com/wp-content/uploads/2016/04/honeycomb-generic-avatar.png" />
+  {% else %}
+      <img sorc="user.avatar"/>
+  {% endif %}
+</div>
+<div class="col-md-3">
   <h1> {{ profile.user }} </h1>
 
-  <h1> {{profile.score}} </h1>
+  <h4> score: {{profile.score}} </h4>
+  </div>
+</div>
 
 
 {% endblock %}

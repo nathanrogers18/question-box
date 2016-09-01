@@ -1,6 +1,4 @@
-{% extends "base.html" %}
-{% load staticfiles %}
-{% block content %}
+{% extends "base.html" %} {% load staticfiles %} {% block content %}
 
 <!-- TODO: Fix links! -->
 
@@ -11,10 +9,14 @@
     <!-- VOTE -->
     <div class="col-xs-4 col-sm-3 col-md-2 col-lg-1" id="vote">
         <ul>
-           <li id="vote"><button type="button" class="btn btn-outline-primary">+</button></li>
-           <li id="vote_counter">{{ question.vote }}</li>
-           <li id="vote"> <button type="button" class="btn btn-outline-primary">-</button></li>
-       </ul>
+            <li id="vote">
+                <button type="button" class="btn btn-outline-primary">+</button>
+            </li>
+            <li id="vote_counter">{{ question.vote }}</li>
+            <li id="vote">
+                <button type="button" class="btn btn-outline-primary">-</button>
+            </li>
+        </ul>
     </div>
 
     <!-- QUESTION TEXT -->
@@ -30,80 +32,155 @@
 {% if question_tags %}
 <ul class="list-inline" id="tag_list">
     {% for tag in question_tags %}
-    <a href="#" class="list-item list-item-action list-group-item-info">{{ tag.topic }}</a>
-    {% endfor %}
+    <a href="#" class="list-item list-item-action list-group-item-info">{{ tag.topic }}</a> {% endfor %}
 </ul>
 {% endif %}
 <!-- USER -->
 <p>
     Question asked by
-    <a href="#" class="list-item list-item-action">{{ question.user }}</a>
-    at {{ question.timestamp }}
+    <a href="#" class="list-item list-item-action">{{ question.user }}</a> at {{ question.timestamp }}
 </p>
 
 <!-- COMMENTS -->
-<ul class="list-group">
+<!-- <ul class="list-group"> -->
 
-        <!-- COMMENT LIST-->
+<!-- COMMENT LIST-->
 {% if question_comments %}
-        <ul class="list-group">
-            {% for comment in question_comments %}
-            <li class="list-group-item" id="comment">
-                {{ comment.text }}
-                -
-                <a href="#" class="list-item list-item-action">{{ comment.user }}</a>
-                at {{ comment.timestamp }}
-            </li>
-            {% endfor %}
-        </ul>
+<ul class="list-group">
+    {% for comment in question_comments %}
+    <li class="list-group-item" id="comment">
+        {{ comment.text }} -
+        <a href="#" class="list-item list-item-action">{{ comment.user }}</a> at {{ comment.timestamp }}
+    </li>
+    {% endfor %}
+</ul>
 {% endif %}
-        <!-- ADD COMMENTS -->
-        <p>
-            <button id="add_comment_button" class="btn btn-primary" type="button" data-toggle="collapse" data-target="#create_comment" aria-expanded="false" aria-controls="collapseExample">
-                Add Comment
-            </button>
-        </p>
-            <div class="collapse" id="create_comment">
-                <form id="comment_form">
-                    <div class="form-group">
-                        <textarea class="form-control" id="comment" rows="3" placeholder="What's your comment? Be specific."></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                </form>
+<!-- ADD COMMENTS -->
+<p>
+    <button id="add_comment_button" class="btn btn-primary" type="button" data-toggle="collapse" data-target="#create_question_comment" aria-expanded="false">
+        Add Comment
+    </button>
+</p>
+<div id="question_comments">
+    <div class="collapse" id="create_question_comment" aria-expanded="false">
+        <form id="comment_form">
+            <div class="form-group">
+                <textarea class="form-control" id="comment" rows="3" placeholder="What's your comment? Be specific."></textarea>
             </div>
-
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</div>
 
 <!-- VIEW ANSWERS -->
+{% if answers %}
 <div class="row" id="answer_row">
-
+    {% for answer in answers %}
     <!-- VOTE -->
     <div class="col-xs-4 col-sm-3 col-md-2 col-lg-1" id="vote">
         <ul>
-           <li id="vote"><button type="button" class="btn btn-outline-primary">+</button></li>
-           <li id="vote_counter">Counter</li>
-           <li id="vote"> <button type="button" class="btn btn-outline-primary">-</button></li>
-       </ul>
+            <li id="vote">
+                <button type="button" class="btn btn-outline-primary">+</button>
+            </li>
+            <li id="vote_counter">{{ answer.answer.vote }}</li>
+            <li id="vote">
+                <button type="button" class="btn btn-outline-primary">-</button>
+            </li>
+        </ul>
     </div>
     <!-- ANSWER TEXT -->
     <div class="col-xs-8 col-sm-9 col-md-10 col-lg-11" id="answer_text">
         <p>
-            Answer text will go here. Answer text will go here. Answer text will go here. Answer text will go here. Answer text will go here. Answer text will go here. Answer text will go here.
+            {{ answer.answer.text }}
         </p>
     </div>
+    <!-- USER -->
+    <p>
+        Answered by
+        <a href="#" class="list-item list-item-action">{{ answer.answer.user }}</a> at {{ answer.answer.timestamp }}
+    </p>
 
-    <!-- COMMENTS -->
-    <!-- COMMENTS -->
 
+    <!-- TAG LIST -->
+    {% if answer.tags %}
+    <ul class="list-inline" id="tag_list">
+        {% for tag in answer.tags %}
+        <a href="#" class="list-item list-item-action list-group-item-info">{{ tag.topic }}</a> {% endfor %}
+    </ul>
+    {% endif %}
+
+    <!-- COMMENT LIST-->
+    {% if answer.comments %}
+    <ul class="list-group">
+        {% for comment in answer.comments %}
+        <li class="list-group-item" id="comment">
+            {{ comment.text }} -
+            <a href="#" class="list-item list-item-action">{{ comment.user }}</a> at {{ comment.timestamp }}
+        </li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+    <!-- ADD COMMENTS -->
+    <div id="answer_comments">
+
+
+        <p>
+            <button id="add_comment_button" class="btn btn-primary" type="button" data-toggle="collapse" data-target="#create_answer_comment">
+                Add Comment
+            </button>
+        </p>
+        <div class="collapse" id="create_answer_comment">
+            <form id="comment_form">
+                <div class="form-group">
+                    <textarea class="form-control" id="comment" rows="3" placeholder="What's your comment? Be specific."></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+{% endfor %} 
 </div>
+{% endif %}
 
 <!-- SUBMIT ANSWER -->
 <div class="row" id="answer_form_div">
     <h2>Answer</h2>
     <form id="answer_form">
         <div class="form-group">
-            <textarea class="form-control" id="comment" rows="3" placeholder="What's your answer? Be specific."></textarea>
+            <textarea class="form-control" id="comment_text" rows="3" placeholder="What's your answer? Be specific."></textarea>
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button id="answer_form_but" type="submit" class="btn btn-primary">Submit</button>
     </form>
 </div>
+{% endblock %} {% block scripts %}
+<script type="text/javascript">
+    $('#answer_form_but').click(function(e) {
+        var $text = $('#comment_text').val();
+        $.ajax({
+            method: 'POST',
+            url: '../../api/answer/',
+            data: {
+                user: {
+                    {
+                        user.id
+                    }
+                },
+                question: {
+                    {
+                        question.id
+                    }
+                },
+                text: $text,
+                'csrfmiddlewaretoken': document.cookie.match(/csrftoken=(\w*)/)[1],
+            },
+            error: function(e) {
+                console.log(e);
+            },
+            dataType: 'json'
+        })
+        return false
+    });
+</script>
+<script src="{% static 'question/js/question_detail.js' %}"></script>
 {% endblock %}

@@ -67,3 +67,7 @@ div.col-md-6.pull-xs-right{
 .pull-link-right {
   text-align: right;
 }
+
+#vote, #vote_counter {
+    list-style: none;
+}
