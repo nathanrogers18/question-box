@@ -4,12 +4,16 @@ nav.navbar.navbar-dark.bg-inverse {
   padding-left: ;
   position: relative;
   font-size: 14px;
-
   line-height: 30px;
+  font-weight: bold;
+}
+
+ul.nav.navbar-nav.pull-xs-right li a{
+  color: #FFFFFF;
 }
 
 ul.nav.navbar-nav.pull-xs-right li a:hover {
-  text-color: #ECE8E6;
+  color: #ECE8E6;
   background: none;
 }
 
